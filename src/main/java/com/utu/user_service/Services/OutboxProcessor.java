@@ -20,7 +20,7 @@ public class OutboxProcessor {
     private final OutBoxRepository outboxRepository;
     private final GrpcClientt grpcClient; // custom gRPC sender
 
-    @Scheduled(fixedDelay = 5000)
+    //@Scheduled(fixedDelay = 5000)
     public void processOutboxEvents() {
         List<OutBoxEvent> pendingEvents = outboxRepository.findByStatus("PENDING");
 

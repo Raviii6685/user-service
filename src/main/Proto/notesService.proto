@@ -10,7 +10,7 @@ option  java_outer_classname="notes";
 service notesService{
   rpc uploadFile(requestFileUpload) returns (responseFileUpload);
 
-  //rpc GetFile (FileDownloadRequest) returns (FileDownloadResponse);
+  rpc GetFile (FileDownloadRequest) returns (FileDownloadResponse);
 }
 
 message requestFileUpload{
@@ -24,14 +24,15 @@ message requestFileUpload{
 message responseFileUpload{
   string status = 1;
   string message = 2;
+  string fileId =3;
 }
-//message FileDownloadRequest {
-//  string fileId = 1;
-//}
+message FileDownloadRequest {
+  string fileId = 1;
+}
 
-//message FileDownloadResponse {
-//  string fileName = 1;
-//  string fileType = 2;
-//  int64 size = 3;
-//  bytes content = 4;
-//}
+message FileDownloadResponse {
+  string fileName = 1;
+  string fileType = 2;
+  int64 size = 3;
+  bytes content = 4;
+}
