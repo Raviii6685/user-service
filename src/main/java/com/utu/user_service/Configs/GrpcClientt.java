@@ -8,7 +8,6 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
@@ -48,7 +47,6 @@ public class GrpcClientt {
                     .setFolderId(folderId)
                     .setContent(ByteString.copyFrom(fileBytes))
                     .build();
-
 
             responseFileUpload response = notesStub.uploadFile(request);
             log.info("gRPC Response: Status={}, Message={}", response.getStatus(), response.getMessage());

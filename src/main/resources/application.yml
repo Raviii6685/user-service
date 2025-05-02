@@ -3,3 +3,11 @@ grpc:
     notesService:
       address: static://localhost:9090  # Replace with actual Notes Service host:port
       negotiationType: plaintext
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/lonejaat
+          jwk-set-uri: http://localhost:8080/realms/lonejaat/protocol/openid-connect/certs #to validate the jwt
+

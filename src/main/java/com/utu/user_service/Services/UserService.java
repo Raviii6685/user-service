@@ -59,4 +59,8 @@ public class UserService {
     public List<String> getFolders(String username) {
         return userRepository.findByUsername(username).getFolders();
     }
+
+    public Object getAllUsers() {
+        return userRepository.findAll();
+    }
 }
